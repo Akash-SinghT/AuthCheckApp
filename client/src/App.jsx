@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
 import ProtectedRoute from "./utils/ProtectedRoute";
-import Signup from "./components/signup";
-import Login from "./components/login";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
 
 export default function App() {
   return (
