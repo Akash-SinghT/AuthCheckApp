@@ -3,7 +3,7 @@ import { removeToken } from "../utils/Token";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
-import { Loader2 } from "lucide-react";
+import { Loader2, LogOut, Home as HomeIcon } from "lucide-react";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -25,28 +25,54 @@ export default function Home() {
       toast.error(err.response?.data?.message || "Logout failed!");
     } finally {
       removeToken();
-      navigate("/login"); // redirect to login page
+      navigate("/login");
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="home-container">
-      <h2>Home</h2>
-      <p>You are successfully logged in!</p>
-      <button
-        className="logout-btn"
-        onClick={handleLogout}
-        disabled={isLoading}
-      >
-        {isLoading ? (
-          <>
-            <Loader2 className="spinner" /> Logging out...
-          </>
-        ) : (
-          "Logout"
-        )}
-      </button>
+    <div className="login-page">
+      <div className="login-card">
+        {/* Left Section */}
+        <div className="login-form-section">
+          <h2 className="login-title">Welcome Home</h2>
+          <p style={{ color: "#ccc", marginBottom: "20px" }}>
+            You are successfully logged in! Enjoy your secure session.
+          </p>
+
+          <button
+            onClick={handleLogout}
+            disabled={isLoading}
+            className="login-btn"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
+            }}
+          >
+            {isLoading ? (
+              <>
+                <Loader2 className="spin" size={16} /> Logging out...
+              </>
+            ) : (
+              <>
+                <LogOut size={18} /> Logout
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* Right Section */}
+        <div className="login-info-section">
+          <HomeIcon size={50} style={{ marginBottom: "10px" }} />
+          <h2 className="info-title">Dashboard</h2>
+          <p className="info-text">
+            Manage your profile, access secure features, and explore your
+            account dashboard.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
