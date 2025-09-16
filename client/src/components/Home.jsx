@@ -3,7 +3,7 @@ import { removeToken } from "../utils/Token";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
-import { Loader2, LogOut, Home as HomeIcon } from "lucide-react";
+import { Loader2, LogOut } from "lucide-react";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -65,7 +65,6 @@ export default function Home() {
 
         {/* Right Section */}
         <div className="login-info-section">
-          <HomeIcon size={50} style={{ marginBottom: "10px" }} />
           <h2 className="info-title">Dashboard</h2>
           <p className="info-text">
             Manage your profile, access secure features, and explore your
