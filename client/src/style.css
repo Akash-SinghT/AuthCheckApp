@@ -6,12 +6,9 @@
   font-family: "Bai Jamjuree", "Segoe UI", sans-serif;
 }
 body {
-  min-height: 100vh;
-  background-color: #0b0b0f;
-  background-image: url("/gradient.svg");
-  background-repeat: no-repeat;
+  background: linear-gradient(120deg, #1f1c2c, #928dab);
   background-size: cover;
-  background-position: center;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

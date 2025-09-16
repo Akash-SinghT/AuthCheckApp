@@ -14,6 +14,7 @@ export const signup = async (req, res) => {
       return res.status(400).json({ message: "Email already exists" });
 
     const user = await User.create({ name, email, password });
+    // jwt token
     const token = generateToken(user, res);
 
     res.status(201).json({
@@ -30,6 +31,7 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    // validate email
     const errors = validateLogin(email, password);
     if (errors.length) return res.status(400).json({ errors });
 
