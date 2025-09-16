@@ -68,7 +68,7 @@ export default function Signup() {
       setForm({ name: "", email: "", password: "" });
       setErrors({});
     } catch (err) {
-      toast.error(err.response?.data?.message || "Server error");
+      toast.error(err.response?.data?.message);
     } finally {
       setIsLoading(false);
     }
